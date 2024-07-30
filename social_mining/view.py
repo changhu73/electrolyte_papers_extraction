@@ -27,7 +27,7 @@ net.from_nx(G)
 
 for node in net.nodes:
     node_id = node['id']
-    node['size'] = G.nodes[node_id]['size'] * 50
+    node['size'] = G.nodes[node_id]['size'] * 200
     node['label'] = str(node_id)
 
 # # testing for the nodes(too small)
