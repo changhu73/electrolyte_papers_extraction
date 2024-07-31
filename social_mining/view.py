@@ -7,10 +7,10 @@ from pyvis.network import Network
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
-with open('c:/Users/13772/OneDrive/文档/GitHub/electrolyte_papers_extraction/social_mining/author_weights.pkl', 'rb') as f:
+with open('author_weights.pkl', 'rb') as f:
     data = pickle.load(f)
 
-with open('c:/Users/13772/OneDrive/文档/GitHub/electrolyte_papers_extraction/social_mining/authors.pkl', 'rb') as f:
+with open('authors.pkl', 'rb') as f:
     element_id_to_author = pickle.load(f)
 
 G = nx.Graph()
@@ -24,7 +24,7 @@ for id_, scaled_weight in zip(data.keys(), scaled_weights):
     node_size = max(scaled_weight * 500, min_node_size)
     G.add_node(id_, value=node_size)
 
-total_citation = pd.read_pickle('c:/Users/13772/OneDrive/文档/GitHub/electrolyte_papers_extraction/social_mining/total_citation.npz')
+total_citation = pd.read_pickle('total_citation.npz')
 
 for row in total_citation.index:
     for col in total_citation.columns:
